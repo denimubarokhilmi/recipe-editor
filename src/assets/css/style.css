@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow: hidden;
+}
+
+.app-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://indonightspot.com/wp-content/uploads/2023/03/Jenis-Jenis-Minuman-Beralkohol-yang-Wajib-Kamu-Pahami.jpg")
+    center/cover no-repeat;
+  opacity: 60%;
+  z-index: 0;
+}
+
+.app-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.header-title {
+  position: relative;
+  overflow: hidden;
+  width: 50%;
+}
+.header-title::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
