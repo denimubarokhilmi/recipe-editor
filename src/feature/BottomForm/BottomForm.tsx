@@ -19,7 +19,7 @@ function BottomForm() {
   }, []);
 
   const handleClicks = useCallback(() => {
-    if (selected.trim().length == 0) return setErrorField("*input is required");
+    if (selected.trim().length == 0) return setErrorField("input is required");
     dispatch(fetchCocktailThunk(selected));
     setErrorField("");
     return;
