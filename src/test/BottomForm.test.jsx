@@ -24,7 +24,7 @@ describe("Component: BottomForm", () => {
 
     expect(screen.getByPlaceholderText(/search cocktail/i)).toBeInTheDocument();
 
-    expect(screen.getByRole("button")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /cari/i })).toBeInTheDocument();
   });
 
   test("shows validation when search is empty", () => {
@@ -34,7 +34,7 @@ describe("Component: BottomForm", () => {
       </Provider>
     );
 
-    fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getByRole("button", { name: /cari/i }));
 
     expect(screen.getByText(/input is required/i)).toBeInTheDocument();
   });

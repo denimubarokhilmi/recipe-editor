@@ -10,7 +10,7 @@ describe("Component: SearchInput", () => {
     expect(screen.getByPlaceholderText(/search cocktail/i)).toBeInTheDocument();
   });
 
-  test("calls onChange when typing", () => {
+  test("calls onChange when typing", async () => {
     const onChange = jest.fn();
 
     render(<SearchInput onChange={onChange} />);
@@ -20,7 +20,8 @@ describe("Component: SearchInput", () => {
         value: "mojito",
       },
     });
-
+    const opt = await screen.findByRole("option", { name: "mojito" });
+    fireEvent.click(opt);
     expect(onChange).toHaveBeenCalledWith("mojito");
   });
 });

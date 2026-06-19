@@ -9,8 +9,8 @@ describe("Component: TopForm", () => {
   test("shows empty message when no ingredient", () => {
     const store = createStore(() => ({
       cocktail: {
-        ingredient: {},
-        measure: {},
+        ingredient: null,
+        measure: null,
       },
     }));
 
@@ -20,7 +20,9 @@ describe("Component: TopForm", () => {
       </Provider>
     );
 
-    expect(screen.getByText(/no ingredient selected/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /no ingredient selected/i })
+    ).toBeInTheDocument();
   });
 
   test("shows total ingredient", () => {
