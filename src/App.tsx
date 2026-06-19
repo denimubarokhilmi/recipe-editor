@@ -1,7 +1,6 @@
 import ErrorBoundary from "./shared/components/ErrorBoundary";
 import { Suspense, lazy } from "react";
 import LoadingComponent from "./shared/components/LoadingComponent";
-
 const TopForm = lazy(() => import("./feature/TopForm/TopForm"));
 const BottomForm = lazy(() => import("./feature/BottomForm/BottomForm"));
 
