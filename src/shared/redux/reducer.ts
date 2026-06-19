@@ -9,15 +9,15 @@ import {
 import type { CocktailAction } from "./action.ts";
 
 export interface CocktailState {
-  ingredient: Record<string, string>;
-  measure: Record<string, string>;
+  ingredient: null | Record<string, string>;
+  measure: null | Record<string, string>;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: CocktailState = {
-  ingredient: {},
-  measure: {},
+  ingredient: null,
+  measure: null,
   loading: false,
   error: null,
 };
@@ -44,8 +44,8 @@ const cocktailReducer = (
         ...state,
         loading: false,
         error: action.payload,
-        ingredient: {},
-        measure: {},
+        ingredient: null,
+        measure: null,
       };
 
     case UPDATE_INGREDIENT:

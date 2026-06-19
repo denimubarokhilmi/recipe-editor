@@ -62,7 +62,6 @@ export const fetchCocktailThunk =
     try {
       await delay();
       const data = await useFetchAPI(select);
-
       const cocktail = data.drinks[0];
 
       // Parse ingredients
@@ -82,7 +81,6 @@ export const fetchCocktailThunk =
       measureKeys.slice(0, ingredientCount).forEach((key) => {
         tempMeasure[key] = (cocktail[key] as string | null) ?? "";
       });
-
       dispatch(fetchCocktailSuccess(tempIngredient, tempMeasure));
     } catch (error) {
       dispatch(fetchCocktailFailure((error as Error).message));
