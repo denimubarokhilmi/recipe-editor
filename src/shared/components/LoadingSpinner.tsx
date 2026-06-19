@@ -1,14 +1,23 @@
 import { memo } from "react";
+import { Box, CircularProgress, Typography } from "@mui/material";
 
 interface Lable {
   label: string;
 }
 
 const LoadingSpinner = memo(({ label }: Lable) => (
-  <div className=" d-flex justify-content-center flex-column align-items-center">
-    <div className="spinner-border text-primary mt-2"></div>
-    <p>{label}</p>
-  </div>
+  <Box
+    className=" m-0 p-0"
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: "column",
+    }}
+  >
+    <CircularProgress></CircularProgress>
+    <Typography>{label}</Typography>
+  </Box>
 ));
 
 export default LoadingSpinner;

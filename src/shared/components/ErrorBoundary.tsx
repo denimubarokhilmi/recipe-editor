@@ -9,6 +9,9 @@ const ErrorBox = styled.div`
   justify-content: center;
   min-height: 200px;
   padding: 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 2;
   background: #fff5f5;
   border: 1px solid #fecaca;
   border-radius: ${({ theme }: { theme?: { radius?: { md?: string } } }) =>
@@ -51,8 +54,6 @@ interface ErrorBoundaryState {
   errorMessage: string;
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
-
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
@@ -72,8 +73,8 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     if (this.state.hasError) {
       return (
         <ErrorBox>
-          <h5>There is an error 😢</h5>
-          <p>{this.state.errorMessage || "Internal server error"}</p>
+          <h5>There is an error </h5>
+          <p> Internal server error</p>
         </ErrorBox>
       );
     }

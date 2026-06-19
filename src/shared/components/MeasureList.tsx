@@ -1,5 +1,5 @@
 import { memo } from "react";
-
+import { TextField } from "@mui/material";
 interface MeasureListProps {
   measure: Record<string, string>;
 }
@@ -7,12 +7,13 @@ interface MeasureListProps {
 const MeasureList = memo(({ measure }: MeasureListProps) => (
   <>
     {Object.entries(measure).map(([key, val]) => (
-      <input
+      <TextField
+        size="small"
         type="text"
         key={key}
         className=" form-control"
         value={val ? val : ""}
-        readOnly
+        aria-readonly
       />
     ))}
   </>
