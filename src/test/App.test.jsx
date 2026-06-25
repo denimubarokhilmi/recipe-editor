@@ -3,7 +3,17 @@ import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import App from "../App.tsx";
 import { Provider } from "react-redux";
-import store from "../shared/redux/index.ts";
+import { createStore } from "redux";
+
+const store = createStore(() => ({
+  cocktail: {
+    ingredient: null,
+    measure: null,
+    loading: false,
+    error: null,
+  },
+}));
+
 describe("Component: App", () => {
   test("should render the lazy-loaded component after Suspense fallback", async () => {
     render(

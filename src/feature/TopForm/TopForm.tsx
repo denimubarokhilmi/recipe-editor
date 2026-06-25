@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import IngredientList from "../../shared/components/IngredientList";
 import MeasureList from "../../shared/components/MeasureList";
+import type { RootState } from "../../shared/redux";
+
 function TopForm() {
-  const data = useSelector((state: any) => state.cocktail);
+  const data = useSelector((state: RootState) => state.cocktail);
 
   return (
     <section className="top-form bg-white position-relative z-2">

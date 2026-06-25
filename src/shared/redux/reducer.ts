@@ -52,7 +52,7 @@ const cocktailReducer = (
       return {
         ...state,
         ingredient: {
-          ...state.ingredient,
+          ...(state.ingredient ?? {}),
           [action.payload.key]: action.payload.value,
         },
       };
@@ -61,7 +61,7 @@ const cocktailReducer = (
       return {
         ...state,
         measure: {
-          ...state.measure,
+          ...(state.measure ?? {}),
           [action.payload.key]: action.payload.value,
         },
       };

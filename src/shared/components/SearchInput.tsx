@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Autocomplete, TextField } from "@mui/material";
-
+import type { AutocompleteRenderInputParams } from "@mui/material";
+import { SyntheticEvent } from "react";
 const SUGGESTIONS = [
   "screwdriver",
   "cuba libre",
@@ -18,8 +19,10 @@ const SearchInput = memo(({ onChange }: SearchInputProps) => (
     freeSolo={true}
     disablePortal={true}
     options={SUGGESTIONS}
-    onInputChange={(_e, newVal) => onChange(newVal ?? "")}
-    renderInput={(params) => (
+    onInputChange={(_e: SyntheticEvent, newVal: string) =>
+      onChange(newVal ?? "")
+    }
+    renderInput={(params: AutocompleteRenderInputParams) => (
       <TextField placeholder="search cocktail" {...params} label="coctail" />
     )}
   />

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 // import styled from "styled-components";
 import { updateIngredient } from "../redux/action.ts";
 import { TextField } from "@mui/material";
-
+import type { AppDispatch } from "../redux/index.ts";
 // const StyledInput = styled.input`
 //   padding: 0.45rem 0.75rem;
 //   font-size: 0.875rem;
@@ -19,7 +19,7 @@ interface IngredientFieldProps {
 }
 
 const IngredientField = memo(({ fieldKey, value }: IngredientFieldProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) =>

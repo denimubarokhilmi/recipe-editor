@@ -6,11 +6,12 @@ import { fetchCocktailThunk } from "../../shared/redux/action";
 import LoadingSpinner from "../../shared/components/LoadingSpinner";
 import IngredientField from "../../shared/components/IngredientField";
 import MeasureField from "../../shared/components/MeasureField";
+import type { RootState, AppDispatch } from "../../shared/redux";
 import { Box } from "@mui/material";
 
 function BottomForm() {
-  const dispatch = useDispatch<any>();
-  const data = useSelector((state: any) => state.cocktail);
+  const dispatch = useDispatch<AppDispatch>();
+  const data = useSelector((state: RootState) => state?.cocktail);
 
   const [selected, setSelect] = useState("");
   const [errorField, setErrorField] = useState("");
@@ -95,7 +96,7 @@ function BottomForm() {
 
               <div className="col-6">
                 <h6 className="fw-bold  mb-3">Qty :</h6>
-                {Object.entries(data?.measure).map(([key, val]) => (
+                {Object.entries(data?.measure ?? {}).map(([key, val]) => (
                   <MeasureField
                     key={key}
                     fieldKey={key}

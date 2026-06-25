@@ -1,12 +1,12 @@
 import { memo } from "react";
 import { TextField } from "@mui/material";
 interface MeasureListProps {
-  measure: Record<string, string>;
+  measure: Record<string, string> | null;
 }
 
 const MeasureList = memo(({ measure }: MeasureListProps) => (
   <>
-    {Object.entries(measure).map(([key, val]) => (
+    {Object.entries(measure ?? {}).map(([key, val]) => (
       <TextField
         size="small"
         type="text"

@@ -7,6 +7,8 @@ import {
 } from "./types.ts";
 
 import useFetchAPI from "../hooks/useFetchAPI.ts";
+import type { AppDispatch } from "./index.ts";
+import { CocktailApiItem } from "../hooks/useFetchAPI.ts";
 
 export type CocktailAction =
   | { type: typeof FETCH_COCKTAIL_REQUEST }
@@ -56,13 +58,13 @@ const delay = (): Promise<void> =>
 
 export const fetchCocktailThunk =
   (select: string) =>
-  async (dispatch: any): Promise<void> => {
+  async (dispatch: AppDispatch): Promise<void> => {
     dispatch(fetchCocktailRequest());
 
     try {
       await delay();
       const data = await useFetchAPI(select);
-      const cocktail = data.drinks[0];
+      const cocktail: CocktailApiItem = data.drinks[0];
 
       // Parse ingredients
       const tempIngredient: Record<string, string> = {};
